@@ -9,37 +9,43 @@ class MultithreadMain{
       
         // }
 
-        Thread t1 = new Thread(new Multithreading() {
-            public void run(){
-                try{
-                    obj.func1();
-                    Thread.sleep(1000);
-                }
-                catch(InterruptedException e){
+        // Thread t1 = new Thread(new Multithreading() {
+        //     public void run(){
+        //         try{
+        //             obj.func1();
+        //             Thread.sleep(1000);
+        //         }
+        //         catch(InterruptedException e){
         
-                }
-            }
-        });
+        //         }
+        //     }
+        // });
 
-        Thread t2 = new Thread(new Multithreading() {
-            public void run(){
-                try{
-                    obj.func2();
-                    Thread.sleep(1000);
-                }
-                catch(InterruptedException e){
+        Thread t1 = new Thread(obj);
+        Thread t2 = new Thread(obj);
+
+
+
+        // Thread t2 = new Thread(new Multithreading() {
+        //     public void run(){
+        //         try{
+        //             obj.func2();
+        //             Thread.sleep(1000);
+        //         }
+        //         catch(InterruptedException e){
         
-                }
-            }
-        });
+        //         }
+        //     }
+        // });
         t1.start();
         t2.start();
 
-        obj.getCounter();
+
 
 
         // thread1.start();
         // thread2.start();
     }
+
 
 }

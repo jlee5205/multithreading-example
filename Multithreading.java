@@ -1,11 +1,13 @@
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.*;
 
 public class Multithreading extends Thread {
 
     public int threadNum;
     public int counter = 0;
     private ReentrantLock lock = new ReentrantLock();
-
+   
 
     public Multithreading(){
         
@@ -17,9 +19,12 @@ public class Multithreading extends Thread {
     @Override
     public void run(){
         
-        for(int i = 0;i< 5;i++){
-            System.out.println("Printing: " + i + " from thread " + threadNum);
-        }
+        // for(int i = 0;i< 5;i++){
+        //     System.out.println("Printing: " + i + " from thread " + threadNum);
+        // 
+        func2();
+        getCounter();
+
 
         try{
             Thread.sleep(1000);
@@ -45,18 +50,26 @@ public class Multithreading extends Thread {
         }
         
     }
-    public void func2() throws InterruptedException{
-        Thread.sleep(1000);
-        lock.lock();
-        try{
-            increment();
-        }
-        finally{
-            lock.unlock();
-        }
+
+    public void func2(){
+        increment();
     }
+
+
+
+
+
+
+
+
+    
     public void getCounter(){
         System.out.println("Counter is " + counter);
+    }
+
+    public int getCounterNumber(){
+
+        return counter;
     }
     
 
